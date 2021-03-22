@@ -4,7 +4,7 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'https://www.puppyswap.finance'
+    href: 'https://www.puppyswap.netlify.app'
   },
   {
     label: 'Exchange',
@@ -19,27 +19,27 @@ const config: MenuEntry[] = [
   {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: 'https://www.puppyswap.finance/farms'
+    href: 'https://www.puppyswap.netlify.app/farms'
   },
   {
     label: 'Pools',
     icon: 'PoolIcon',
-    href: 'https://www.puppyswap.finance/pools'
+    href: 'https://www.puppyswap.netlify.app/pools'
   },
   {
     label: 'Oceans',
     icon: 'WaveIcon',
-    href: 'https://www.puppyswap.finance/oceans',
+    href: 'https://www.puppyswap.netlify.app/oceans',
   },
   {
     label: 'Lottery 🆕',
     icon: 'TicketIcon',
-    href: 'https://www.puppyswap.finance/lottery',
+    href: 'https://www.puppyswap.netlify.app/lottery',
   },
   {
     label: 'Launchpad (IDOs)',
     icon: 'IfoIcon',
-    href: 'https://www.puppyswap.finance/ido',
+    href: 'https://www.puppyswap.netlify.app/ido',
   },
   {
     label: 'Audit By Certik in progress...',
@@ -49,7 +49,7 @@ const config: MenuEntry[] = [
   {
     label: 'Price Graph',
     icon: 'GraphIcon',
-    href: 'https://www.puppyswap.finance/graph',
+    href: 'https://www.puppyswap.netlify.app/graph',
   },
   {
     label: 'Listings',
@@ -72,7 +72,7 @@ const config: MenuEntry[] = [
   // {
   //   label: 'Lottery',
   //   icon: 'TicketIcon',
-  //   href: 'https://www.puppyswap.finance/lottery'
+  //   href: 'https://www.puppyswap.netlify.app/lottery'
   // },
   // {
   //   label: 'Info',
@@ -90,7 +90,7 @@ const config: MenuEntry[] = [
     items: [
       // {
       //   label: 'Voting',
-      //   href: 'https://voting.puppyswap.finance',
+      //   href: 'https://voting.puppyswap.netlify.app',
       // },
       {
         label: "Github",
