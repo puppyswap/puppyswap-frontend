@@ -4,6 +4,7 @@ import { useMulticallContract } from './useContract'
 import ERC20_INTERFACE from '../constants/abis/erc20'
 import priceContracts from '../constants/saltPriceContracts'
 
+// eslint-disable-next-line
 type ApiResponse = {
   prices: {
     [key: string]: string
@@ -15,6 +16,7 @@ type ApiResponse = {
  * Due to Cors the api was forked and a proxy was created
  * @see https://github.com/pancakeswap/gatsby-pancake-api/commit/e811b67a43ccc41edd4a0fa1ee704b2f510aa0ba
  */
+// eslint-disable-next-line
 const api = 'https://api.pancakeswap.com/api/v1/price'
 
 const useGetPriceData = () => {
@@ -32,7 +34,7 @@ const useGetPriceData = () => {
             [saltAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
             [busdAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
           ];
-
+// eslint-disable-next-line
           const [resultsBlockNumber, result] = await multicallContract.aggregate(calls);
           const [cakeAmount, busdAmount] = result.map(r => ERC20_INTERFACE.decodeFunctionResult("balanceOf", r));
           const cake = new BigNumber(cakeAmount);
