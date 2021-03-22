@@ -1,42 +1,31 @@
 import React, { useContext } from 'react'
-import { Menu as UikitMenu, ConnectorId } from '@saltswap/uikit'
-import { useWeb3React } from '@web3-react/core'
-import { allLanguages } from 'constants/localisation/languageCodes'
-import { LanguageContext } from 'hooks/LanguageContext'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
+import { allLanguages } from 'config/localisation/languageCodes'
+import { LanguageContext } from 'contexts/Localisation/languageContext'
 import useTheme from 'hooks/useTheme'
-import useGetPriceData from 'hooks/useGetPriceData'
-import { injected, bsc, walletconnect } from 'connectors'
-import links from './config'
+import { usePriceCakeBusd } from 'state/hooks'
+import { Menu as UikitMenu } from '@pancakeswap-libs/uikit'
+import config from './config'
 
-const Menu: React.FC = (props) => {
-  const { account, activate, deactivate } = useWeb3React()
+const Menu = (props) => {
+  const { account, connect, reset } = useWallet()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
-  const cakePriceUsd = useGetPriceData()
+  const cakePriceUsd = usePriceCakeBusd()
 
   return (
     <UikitMenu
-      links={links}
-      priceLink="#"
-      account={account as string}
-      login={(connectorId: ConnectorId) => {
-        if (connectorId === 'walletconnect') {
-          return activate(walletconnect)
-        }
-
-        if (connectorId === 'bsc') {
-          return activate(bsc)
-        }
-
-        return activate(injected)
-      }}
-      logout={deactivate}
+      account={account}
+      login={connect}
+      logout={reset}
       isDark={isDark}
       toggleTheme={toggleTheme}
-      currentLang={selectedLanguage?.code || ''}
+      currentLang={selectedLanguage && selectedLanguage.code}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      cakePriceUsd={cakePriceUsd}
+      cakePriceUsd={cakePriceUsd.toNumber()}
+      links={config}
+      priceLink="https://www.coingecko.com/en/coins/goose-finance"
       {...props}
     />
   )

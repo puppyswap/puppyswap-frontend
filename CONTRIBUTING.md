@@ -1,10 +1,18 @@
-# Contributing to the PuppySwap ecosystem 🧂
+# Contributing to the Pancake ecosystem 🥞
 
 Thanks for taking the time to contribute !
-
-You can start by reading our [Contribution guidelines](https://docs.saltswap.finance/code/contributing) first.
+You can start by reading our [Contribution guidelines](https://docs.pancakeswap.finance/code/contributing) first.
 
 ## Setup
+
+Create a `.env.development.local` file at the root of the project. Add the following lines inside :
+
+```
+REACT_APP_CROWDIN_APIKEY = ""
+REACT_APP_CROWDIN_PROJECTID = ""
+```
+
+You'll need this in order to get the i18n system to work. Contact a dev if you need these values.
 
 Install the dependencies
 
@@ -15,32 +23,19 @@ yarn start
 
 Don't forget to setup your IDE with `eslint` and `prettier`.
 
-## Change BSC network
+## Projet structure
 
-To change the BSC network from test net, modify the `REACT_APP_CHAIN_ID` value in `.env`.
-
-- MAIN NET `56`
-- TEST NET `97`
+- **components** contains generic components used inside the application.
+- **views** contains building blocks for each page. The entry point of a view is used as the root component of each route.
+- **config** contains all the config files and ABIs.
+- **state** contains the redux files for the global state of the app.
+- **context** contains global contexts (separated from the redux store)
+- **hooks** contains generic hooks.
+- **utils** contains generic utilities functions.
 
 ## Tests
 
-Firstly, if you need to install cypress
-
-```js
-yarn cypress install
-```
-
-Then to run the Cypress suite in CLI
-
-```js
-yarn cypress run
-```
-
-Or, to run Cypress with its GUI
-
-```js
-yarn cypress open
-```
+Run tests with `yarn test`.
 
 ## Localisation
 
@@ -67,4 +62,4 @@ The translation component can handle variables being passed in from Crowdin, wit
 
 It will only work if there is only **one** variable passed in, and if that variable within Crowdin is wrapped in **%** signs, i.e.:
 
-Translation in crowdin: `%asset% Earned` [link](https://crowdin.com/translate/saltswap/8/en-de#330)
+Translation in crowdin: `%asset% Earned` [link](https://crowdin.com/translate/pancakeswap/8/en-de#330)
